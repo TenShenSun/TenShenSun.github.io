@@ -1,0 +1,89 @@
+{
+  "layers": [
+    { "id": "intro", "name": "开篇 · 总览", "en": "OVERVIEW", "desc": "全栈 Agent 技术地图：四层架构、为什么这样分层，以及整个系列的阅读路径。" },
+    { "id": "app", "name": "应用层 · Agent 产品", "en": "APPLICATION", "desc": "面向用户的智能体产品：对话架构、内容与安全风控、增长体系、AIGC 工程化。" },
+    { "id": "orchestration", "name": "编排层 · Agent Orchestration", "en": "ORCHESTRATION", "desc": "把模型变成会规划、会用工具、有记忆的智能体：编排范式、上下文工程、工具与 MCP。" },
+    { "id": "runtime", "name": "运行时层 · Harness + Model", "en": "RUNTIME", "desc": "Agent 真正运行的地方：Harness/Agent Loop 设计、工具沙箱、评测与可观测性。" },
+    { "id": "model", "name": "模型层 · Foundation Model", "en": "MODEL", "desc": "一切之下的地基：Transformer 与注意力、后训练与对齐、推理优化与部署。" }
+  ],
+  "posts": [
+    {
+      "slug": "00-series-overview", "order": 0, "code": "00 · 总览", "layer": "intro",
+      "title": "开篇：全栈 Agent 技术地图——从应用风控到模型底层",
+      "summary": "为什么要用四层架构来理解 Agent 系统？本文给出一张贯穿应用、编排、运行时、模型的完整技术地图，并解释整个系列的阅读路径。",
+      "tags": ["综述", "架构", "技术地图"], "readingTime": "12 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "01-agent-app-architecture", "order": 1, "code": "01 · 应用", "layer": "app",
+      "title": "Agent 应用架构：从 Chatbot 到自主智能体",
+      "summary": "对话即产品。从 FAQ Bot、RAG 助手到自主 Agent 的演进路径，剖析对话产品的核心架构、状态管理与 ChatGPT/Claude/通义千问的产品形态对照。",
+      "tags": ["对话产品", "架构", "ChatGPT", "RAG"], "readingTime": "16 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "02-agent-risk-control", "order": 2, "code": "02 · 风控", "layer": "app",
+      "title": "Agent 风控：Prompt 注入、越狱、内容安全与 Guardrails",
+      "summary": "Agent 越自主，攻击面越大。系统梳理 Prompt 注入与越狱的攻防、内容安全分层、工具调用的权限边界，以及 OpenAI/Anthropic/NVIDIA 的护栏实践。",
+      "tags": ["安全", "Prompt注入", "Guardrails", "内容安全"], "readingTime": "18 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "03-agent-growth", "order": 3, "code": "03 · 增长", "layer": "app",
+      "title": "Agent 增长：AARRR、留存与智能体产品的增长飞轮",
+      "summary": "AI 产品的增长不只是买量。从 AARRR 到 PMF 信号，分析 ChatGPT/Character.AI/Manus 的增长策略、激活与留存设计，以及 token 经济下的单位经济学。",
+      "tags": ["增长", "AARRR", "留存", "单位经济"], "readingTime": "15 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "04-aigc-engineering", "order": 4, "code": "04 · AIGC", "layer": "app",
+      "title": "AIGC 工程化：多模态生成、RAG 与内容质量",
+      "summary": "从文生文到文生图/视频，AIGC 落地的真正难点是工程与质量。剖析多模态生成栈、RAG 检索增强、内容质量评估与版权/水印合规。",
+      "tags": ["AIGC", "多模态", "RAG", "扩散模型"], "readingTime": "17 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "05-agent-orchestration", "order": 5, "code": "05 · 编排", "layer": "orchestration",
+      "title": "Agent 编排范式：ReAct、Plan-and-Execute 到 Multi-Agent",
+      "summary": "智能体如何思考与行动？系统对比 ReAct、Reflexion、Plan-and-Execute、Tree-of-Thoughts 与多智能体协作，并解析 LangGraph、AutoGen、Manus 的编排实现。",
+      "tags": ["编排", "ReAct", "Multi-Agent", "LangGraph"], "readingTime": "19 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "06-context-engineering", "order": 6, "code": "06 · 上下文", "layer": "orchestration",
+      "title": "上下文工程：记忆、检索与上下文窗口管理",
+      "summary": "Context is all you need。从 Prompt 工程到上下文工程的范式跃迁：记忆系统、检索策略、上下文压缩与长上下文/KV 复用,对照 Anthropic、MemGPT 的实践。",
+      "tags": ["上下文工程", "记忆", "RAG", "长上下文"], "readingTime": "17 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "07-tools-and-mcp", "order": 7, "code": "07 · 工具/MCP", "layer": "orchestration",
+      "title": "工具使用与 MCP：从 Function Calling 到 Model Context Protocol",
+      "summary": "工具让模型能改变世界。梳理 Function Calling 的演进、工具设计的工程原则，以及 Anthropic 提出的 MCP 协议如何成为 Agent 生态的 USB-C。",
+      "tags": ["工具调用", "MCP", "Function Calling", "协议"], "readingTime": "16 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "08-agent-runtime-harness", "order": 8, "code": "08 · 运行时", "layer": "runtime",
+      "title": "Agent 运行时与 Harness 设计：剖析 Claude Code 与 Manus",
+      "summary": "Agent = Harness + Model。深入运行时的 Agent Loop、上下文构建、工具沙箱、权限与中断恢复,以 Claude Code、Manus、OpenAI 的 Agent 运行时为案例。",
+      "tags": ["Harness", "运行时", "Agent Loop", "Claude Code"], "readingTime": "20 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "09-agent-evaluation", "order": 9, "code": "09 · 评测", "layer": "runtime",
+      "title": "Agent 评测与可观测性：从离线基准到线上 Tracing",
+      "summary": "不可度量则不可改进。系统讲解 Agent 评测的难点、轨迹级评估、LLM-as-Judge、基准（SWE-bench/GAIA/τ-bench）与线上可观测性体系。",
+      "tags": ["评测", "可观测性", "SWE-bench", "Tracing"], "readingTime": "16 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "10-llm-fundamentals", "order": 10, "code": "10 · 模型", "layer": "model",
+      "title": "大模型底层：Transformer、注意力与推理机制",
+      "summary": "从 Attention is All You Need 讲起：自注意力、位置编码、Decoder-only 架构、Scaling Law,以及为什么 Transformer 能支撑起整个 Agent 时代。",
+      "tags": ["Transformer", "注意力", "Scaling Law", "原理"], "readingTime": "18 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "11-post-training-alignment", "order": 11, "code": "11 · 对齐", "layer": "model",
+      "title": "后训练与对齐：RLHF、DPO 与 Constitutional AI",
+      "summary": "预训练给了模型知识，后训练给了它价值观与能力。剖析 SFT、RLHF、DPO、Constitutional AI 与面向 Agent 的 RL,对照 InstructGPT 与 Claude 的对齐路线。",
+      "tags": ["RLHF", "DPO", "对齐", "后训练"], "readingTime": "18 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "12-inference-optimization", "order": 12, "code": "12 · 推理", "layer": "model",
+      "title": "推理优化与部署：KV Cache、量化、投机解码与服务化",
+      "summary": "再强的模型,推不动也白搭。系统讲解 KV Cache、PagedAttention、连续批处理、量化与投机解码,以及 vLLM/SGLang/TensorRT-LLM 的服务化实践。",
+      "tags": ["推理优化", "KV Cache", "vLLM", "量化"], "readingTime": "17 分钟", "date": "2026-05"
+    }
+  ]
+}
